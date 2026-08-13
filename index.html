@@ -45,8 +45,6 @@
             color: white;
         }
 
-        /* Selected badge */
-
         #selectedSection {
             display: none;
             margin: 30px 0;
@@ -123,8 +121,6 @@
             color: #aeb1b8;
         }
 
-        /* Badge grid */
-
         #badgeGrid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -193,8 +189,6 @@
             color: #fff;
         }
 
-        /* Loading / errors */
-
         .message {
             text-align: center;
             padding: 50px 20px;
@@ -204,8 +198,6 @@
         .error {
             color: #ff8585;
         }
-
-        /* Responsive */
 
         @media (max-width: 800px) {
             #badgeGrid {
@@ -277,8 +269,6 @@
         </div>
     </header>
 
-    <!-- Selected badge -->
-
     <section id="selectedSection">
 
         <div class="divider"></div>
@@ -347,13 +337,7 @@
     */
 
     const BADGES_FILE = "badges.json";
-
-    const THUMBNAIL_URL =
-        "https://thumbnails.roblox.com/v1/badges/icons" +
-        "?badgeIds=BADGE_ID" +
-        "&size=150x150" +
-        "&format=Png" +
-        "&isCircular=false";
+    const IMAGES_FILE = "images.json";
 
 
     /*
@@ -364,6 +348,8 @@
 
     let badges = [];
 
+    let imageMap = new Map();
+
     let ownedBadges =
         JSON.parse(
             localStorage.getItem(
@@ -372,22 +358,6 @@
         );
 
     let selectedBadgeId = null;
-
-
-    /*
-        Thumbnail cache.
-
-        Once we get an image URL from Roblox,
-        we store it here.
-
-        Example:
-
-        "3699194840755262"
-            ->
-        "https://tr.rbxcdn.com/..."
-    */
-
-    const thumbnailCache = new Map();
 
 
     /*
@@ -435,6 +405,137 @@
 
     /*
         ==========================================
+        LOAD IMAGES.JSON
+        ==========================================
+    */
+
+    async function loadImages() {
+
+        const response =
+            await fetch(IMAGES_FILE);
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Could not load images.json. HTTP " +
+                response.status
+            );
+
+        }
+
+        const json =
+            await response.json();
+
+
+        /*
+            images.json has this structure:
+
+            {
+                "data": [
+                    {
+                        "targetId": 123,
+                        "state": "Completed",
+                        "imageUrl": "...",
+                        "version": "TN3"
+                    }
+                ]
+            }
+        */
+
+        if (
+            !json ||
+            !Array.isArray(json.data)
+        ) {
+
+            throw new Error(
+                "images.json does not contain a data array."
+            );
+
+        }
+
+
+        /*
+            Turn the array into a Map.
+
+            targetId -> imageUrl
+
+            This makes lookups extremely fast.
+        */
+
+        imageMap = new Map();
+
+        json.data.forEach(
+            image => {
+
+                if (
+                    image.targetId === undefined ||
+                    image.targetId === null
+                ) {
+
+                    return;
+
+                }
+
+
+                imageMap.set(
+                    String(image.targetId),
+                    image.imageUrl || ""
+                );
+
+            }
+        );
+
+
+        console.log(
+            "Loaded " +
+            imageMap.size +
+            " image URLs from images.json."
+        );
+
+    }
+
+
+    /*
+        ==========================================
+        GET THUMBNAIL URL
+        ==========================================
+    */
+
+    function getThumbnailUrl(badge) {
+
+        if (
+            !badge ||
+            badge.id === undefined ||
+            badge.id === null
+        ) {
+
+            return "";
+
+        }
+
+
+        const id =
+            String(badge.id);
+
+
+        /*
+            Find the image associated with
+            this badge ID.
+
+            IMPORTANT:
+
+            There are NO Roblox API requests here.
+
+            The URL comes directly from images.json.
+        */
+
+        return imageMap.get(id) || "";
+
+    }
+
+
+    /*
+        ==========================================
         LOAD BADGES.JSON
         ==========================================
     */
@@ -442,6 +543,14 @@
     async function loadBadges() {
 
         try {
+
+            /*
+                Load both JSON files before
+                rendering anything.
+            */
+
+            await loadImages();
+
 
             const response =
                 await fetch(BADGES_FILE);
@@ -492,18 +601,16 @@
             totalCount.textContent =
                 badges.length;
 
+
             message.style.display =
                 "none";
 
 
             /*
-                Render the badges ONCE.
-
-                After this, clicking badges will
-                NOT rebuild the grid.
+                Render the grid once.
             */
 
-            await renderBadges();
+            renderBadges();
 
             updateProgress();
 
@@ -515,148 +622,11 @@
                 "message error";
 
             message.innerHTML =
-                "<strong>Couldn't load badges.json.</strong><br><br>" +
-                "Make sure <b>badges.json</b> is in the same folder " +
-                "as index.html.<br><br>" +
+                "<strong>Couldn't load badge data.</strong><br><br>" +
+                "Make sure <b>badges.json</b> and <b>images.json</b> " +
+                "are in the same folder as index.html.<br><br>" +
                 "Error: " +
                 escapeHtml(error.message);
-
-        }
-
-    }
-
-
-    /*
-        ==========================================
-        ROBLOX THUMBNAIL
-        ==========================================
-    */
-
-    async function getThumbnailUrl(badge) {
-
-        if (!badge.id) {
-            return "";
-        }
-
-        const id =
-            String(badge.id);
-
-
-        /*
-            IMPORTANT:
-
-            If we already asked Roblox for this
-            badge's image URL, don't ask again.
-        */
-
-        if (thumbnailCache.has(id)) {
-
-            return thumbnailCache.get(id);
-
-        }
-
-
-        try {
-
-            const url =
-                THUMBNAIL_URL.replace(
-                    "BADGE_ID",
-                    encodeURIComponent(id)
-                );
-
-
-            /*
-                Ask Roblox's thumbnail API.
-            */
-
-            const response =
-                await fetch(url);
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    "Roblox thumbnail API returned HTTP " +
-                    response.status
-                );
-
-            }
-
-
-            /*
-                Convert Roblox's response to JSON.
-            */
-
-            const json =
-                await response.json();
-
-
-            /*
-                Example:
-
-                {
-                    "data": [
-                        {
-                            "targetId": 3699194840755262,
-                            "state": "Completed",
-                            "imageUrl": "https://tr.rbxcdn.com/...",
-                            "version": "TN3"
-                        }
-                    ]
-                }
-            */
-
-            if (
-                !json.data ||
-                !Array.isArray(json.data) ||
-                json.data.length === 0
-            ) {
-
-                console.warn(
-                    "No thumbnail returned for badge:",
-                    id
-                );
-
-                return "";
-
-            }
-
-
-            /*
-                THIS is the important part.
-
-                Get the actual CDN image URL.
-            */
-
-            const imageUrl =
-                json.data[0].imageUrl || "";
-
-
-            /*
-                Store the CDN URL in the cache.
-
-                Future calls for this badge will
-                immediately return this URL without
-                contacting Roblox again.
-            */
-
-            thumbnailCache.set(
-                id,
-                imageUrl
-            );
-
-
-            return imageUrl;
-
-        } catch (error) {
-
-            console.error(
-                "Failed to load thumbnail for badge " +
-                id,
-                error
-            );
-
-            return "";
 
         }
 
@@ -669,28 +639,17 @@
         ==========================================
     */
 
-    async function renderBadges() {
+    function renderBadges() {
 
         grid.innerHTML = "";
 
 
         /*
-            Get all thumbnail URLs.
+            No Roblox requests happen here.
 
-            This happens only when the grid is
-            initially rendered.
-
-            The cache prevents duplicate requests.
+            getThumbnailUrl() simply looks up
+            the URL in the imageMap.
         */
-
-        const thumbnailUrls =
-            await Promise.all(
-                badges.map(
-                    badge =>
-                        getThumbnailUrl(badge)
-                )
-            );
-
 
         badges.forEach(
             (badge, index) => {
@@ -738,17 +697,16 @@
                     document.createElement("img");
 
 
-                /*
-                    This is the actual URL
-                    returned by Roblox.
+                const imageUrl =
+                    getThumbnailUrl(badge);
 
-                    Example:
 
-                    https://tr.rbxcdn.com/...
-                */
+                if (imageUrl) {
 
-                img.src =
-                    thumbnailUrls[index];
+                    img.src =
+                        imageUrl;
+
+                }
 
 
                 img.alt =
@@ -791,10 +749,10 @@
 
 
                 /*
-                    Clicking the badge ONLY
-                    changes the selected badge.
+                    Clicking a badge only changes
+                    the selected badge.
 
-                    It does NOT call renderBadges().
+                    The grid is NOT rebuilt.
                 */
 
                 element.addEventListener(
@@ -817,7 +775,7 @@
         ==========================================
     */
 
-    async function selectBadge(badge) {
+    function selectBadge(badge) {
 
         selectedBadgeId =
             String(badge.id);
@@ -828,15 +786,14 @@
 
 
         /*
-            Get the cached URL.
+            Get the image directly from
+            images.json.
 
-            If it was already loaded during
-            initial rendering, this returns
-            instantly without another API request.
+            No network request is made.
         */
 
         const imageUrl =
-            await getThumbnailUrl(badge);
+            getThumbnailUrl(badge);
 
 
         selectedIcon.src =
@@ -873,18 +830,6 @@
 
 
         updateSelectedStatus();
-
-
-        /*
-            IMPORTANT:
-
-            We DO NOT call renderBadges()
-            here.
-
-            This means the other badge images
-            stay exactly where they are.
-        */
-
         updateSelectedBadgeVisuals();
 
 
@@ -988,9 +933,8 @@
 
 
             /*
-                Update only what actually changed.
-
-                We don't rebuild the whole grid.
+                Only update the affected
+                parts of the page.
             */
 
             updateProgress();
