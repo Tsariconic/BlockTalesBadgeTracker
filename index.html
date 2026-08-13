@@ -477,30 +477,14 @@
     */
 
     function getThumbnailUrl(badge) {
-
-        /*
-            Roblox's badge API gives us iconImageId.
-
-            Example:
-
-            iconImageId: 17368689772
-
-            That is what we use to request the icon.
-        */
-
-        const imageId =
-            badge.displayIconImageId ||
-            badge.iconImageId;
-
-        if (!imageId) {
+        if (!badge.id) {
             return "";
         }
 
         return THUMBNAIL_URL.replace(
             "BADGE_ID",
-            imageId
+            badge.id
         );
-
     }
 
 
