@@ -277,7 +277,6 @@
         </div>
     </header>
 
-    <!-- Only appears when a badge is selected -->
     <section id="selectedSection">
 
         <div class="divider"></div>
@@ -352,7 +351,9 @@
     let badges = [];
 
     let ownedBadges =
-        JSON.parse(localStorage.getItem("blockTalesOwnedBadges") || "[]");
+        JSON.parse(
+            localStorage.getItem("blockTalesOwnedBadges") || "[]"
+        );
 
     let selectedBadgeId = null;
 
@@ -363,8 +364,11 @@
         ==========================================
     */
 
-    const grid = document.getElementById("badgeGrid");
-    const message = document.getElementById("message");
+    const grid =
+        document.getElementById("badgeGrid");
+
+    const message =
+        document.getElementById("message");
 
     const completedCount =
         document.getElementById("completedCount");
@@ -407,7 +411,8 @@
 
         try {
 
-            const response = await fetch(BADGES_FILE);
+            const response =
+                await fetch(BADGES_FILE);
 
             if (!response.ok) {
                 throw new Error(
@@ -415,48 +420,53 @@
                 );
             }
 
-            const json = await response.json();
+            const json =
+                await response.json();
 
             /*
-                Supports the exact Roblox API response
-                you pasted:
+                Supports:
 
                 {
                     "data": [...]
                 }
 
-                It also supports a plain array just in case.
+                or simply:
+
+                [...]
             */
 
             if (Array.isArray(json)) {
+
                 badges = json;
+
             } else if (Array.isArray(json.data)) {
+
                 badges = json.data;
+
             } else {
+
                 throw new Error(
                     "badges.json does not contain a data array."
                 );
+
             }
 
-            /*
-                Keep the order exactly as it appears
-                in badges.json.
+            totalCount.textContent =
+                badges.length;
 
-                We DO NOT alphabetically sort it.
-            */
+            message.style.display =
+                "none";
 
-            totalCount.textContent = badges.length;
+            await renderBadges();
 
-            message.style.display = "none";
-
-            renderBadges();
             updateProgress();
 
         } catch (error) {
 
             console.error(error);
 
-            message.className = "message error";
+            message.className =
+                "message error";
 
             message.innerHTML =
                 "<strong>Couldn't load badges.json.</strong><br><br>" +
@@ -476,15 +486,99 @@
         ==========================================
     */
 
-    function getThumbnailUrl(badge) {
+    async function getThumbnailUrl(badge) {
+
         if (!badge.id) {
             return "";
         }
 
-        return THUMBNAIL_URL.replace(
-            "BADGE_ID",
-            badge.id
-        );
+        try {
+
+            /*
+                Build the Roblox thumbnail API URL
+                using the badge ID from badges.json.
+            */
+
+            const url =
+                THUMBNAIL_URL.replace(
+                    "BADGE_ID",
+                    encodeURIComponent(badge.id)
+                );
+
+            /*
+                Ask Roblox for the thumbnail information.
+            */
+
+            const response =
+                await fetch(url);
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Roblox thumbnail API returned HTTP " +
+                    response.status
+                );
+
+            }
+
+            /*
+                Example response:
+
+                {
+                    "data": [
+                        {
+                            "targetId": 3699194840755262,
+                            "state": "Completed",
+                            "imageUrl": "https://tr.rbxcdn.com/...",
+                            "version": "TN3"
+                        }
+                    ]
+                }
+            */
+
+            const json =
+                await response.json();
+
+            /*
+                Make sure Roblox actually returned
+                an image.
+            */
+
+            if (
+                !json.data ||
+                !Array.isArray(json.data) ||
+                json.data.length === 0
+            ) {
+
+                console.warn(
+                    "No thumbnail returned for badge:",
+                    badge.id
+                );
+
+                return "";
+
+            }
+
+            /*
+                Extract the imageUrl from:
+
+                data[0].imageUrl
+            */
+
+            return json.data[0].imageUrl || "";
+
+        } catch (error) {
+
+            console.error(
+                "Failed to load thumbnail for badge " +
+                badge.id,
+                error
+            );
+
+            return "";
+
+        }
+
     }
 
 
@@ -494,13 +588,28 @@
         ==========================================
     */
 
-    function renderBadges() {
+    async function renderBadges() {
 
         grid.innerHTML = "";
 
+        /*
+            Load all thumbnails.
+            Promise.all allows them to load
+            at the same time instead of one
+            after another.
+        */
+
+        const thumbnailUrls =
+            await Promise.all(
+                badges.map(
+                    badge => getThumbnailUrl(badge)
+                )
+            );
+
         badges.forEach((badge, index) => {
 
-            const id = String(badge.id);
+            const id =
+                String(badge.id);
 
             const owned =
                 ownedBadges.includes(id);
@@ -512,39 +621,54 @@
                 "badge " +
                 (owned ? "owned" : "notOwned");
 
-            element.dataset.id = id;
+            element.dataset.id =
+                id;
 
             if (selectedBadgeId === id) {
-                element.classList.add("selectedBadge");
+
+                element.classList.add(
+                    "selectedBadge"
+                );
+
             }
 
             const img =
                 document.createElement("img");
 
-            img.src = getThumbnailUrl(badge);
+            /*
+                This is now the actual imageUrl
+                returned by Roblox, for example:
+
+                https://tr.rbxcdn.com/180DAY-.../150/150/Image/Png/noFilter
+            */
+
+            img.src =
+                thumbnailUrls[index];
 
             img.alt =
                 badge.displayName ||
                 badge.name ||
                 "Badge";
 
-            img.loading = "lazy";
+            img.loading =
+                "lazy";
 
-            /*
-                If Roblox doesn't return an icon,
-                don't let the broken-image icon look awful.
-            */
+            img.onerror =
+                function () {
 
-            img.onerror = function () {
-                this.style.opacity = "0.2";
-            };
+                    this.style.opacity =
+                        "0.2";
+
+                };
 
             const number =
                 document.createElement("div");
 
-            number.className = "badgeNumber";
+            number.className =
+                "badgeNumber";
 
-            number.textContent = index + 1;
+            number.textContent =
+                index + 1;
 
             element.appendChild(img);
             element.appendChild(number);
@@ -567,7 +691,7 @@
         ==========================================
     */
 
-    function selectBadge(badge) {
+    async function selectBadge(badge) {
 
         selectedBadgeId =
             String(badge.id);
@@ -575,8 +699,13 @@
         selectedSection.style.display =
             "block";
 
+        /*
+            Get the actual Roblox image URL
+            for the selected badge.
+        */
+
         selectedIcon.src =
-            getThumbnailUrl(badge);
+            await getThumbnailUrl(badge);
 
         selectedIcon.alt =
             badge.displayName ||
@@ -594,7 +723,8 @@
             "No description.";
 
         selectedId.textContent =
-            "Badge ID: " + badge.id;
+            "Badge ID: " +
+            badge.id;
 
         ownedCheckbox.checked =
             ownedBadges.includes(
@@ -603,12 +733,12 @@
 
         updateSelectedStatus();
 
-        renderBadges();
-
         /*
-            Scroll the selected badge area
-            into view on mobile / long pages.
+            Re-render so the selected badge
+            gets its border.
         */
+
+        await renderBadges();
 
         selectedSection.scrollIntoView({
             behavior: "smooth",
@@ -634,9 +764,11 @@
 
             if (this.checked) {
 
-                if (!ownedBadges.includes(
-                    selectedBadgeId
-                )) {
+                if (
+                    !ownedBadges.includes(
+                        selectedBadgeId
+                    )
+                ) {
 
                     ownedBadges.push(
                         selectedBadgeId
@@ -648,7 +780,8 @@
 
                 ownedBadges =
                     ownedBadges.filter(
-                        id => id !== selectedBadgeId
+                        id =>
+                            id !== selectedBadgeId
                     );
 
             }
@@ -660,6 +793,13 @@
 
             updateProgress();
             updateSelectedStatus();
+
+            /*
+                Don't need to reload Roblox
+                thumbnails here, but renderBadges
+                is async so we call it normally.
+            */
+
             renderBadges();
 
         }
@@ -673,15 +813,6 @@
     */
 
     function updateProgress() {
-
-        /*
-            Only count badges which actually
-            exist in the current badges.json.
-
-            This prevents old saved IDs from
-            affecting the percentage if you
-            remove/update badges later.
-        */
 
         const completed =
             badges.filter(
@@ -713,14 +844,10 @@
 
     function formatPercentage(number) {
 
-        /*
-            23 / 70 = 32.9%
-            1 / 3 = 33.3%
-            70 / 70 = 100%
-        */
-
         if (Number.isInteger(number)) {
+
             return number + "%";
+
         }
 
         return number.toFixed(1) + "%";
