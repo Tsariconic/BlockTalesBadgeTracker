@@ -277,6 +277,8 @@
         </div>
     </header>
 
+    <!-- Selected badge -->
+
     <section id="selectedSection">
 
         <div class="divider"></div>
@@ -294,19 +296,31 @@
 
                 <h2 id="selectedName"></h2>
 
-                <div id="selectedDescription" class="description"></div>
+                <div
+                    id="selectedDescription"
+                    class="description"
+                ></div>
 
-                <div id="selectedId" class="badgeId"></div>
+                <div
+                    id="selectedId"
+                    class="badgeId"
+                ></div>
 
                 <label class="checkboxRow">
+
                     <input
                         type="checkbox"
                         id="ownedCheckbox"
                     >
+
                     <span>I have this badge</span>
+
                 </label>
 
-                <div id="selectedStatus" class="status"></div>
+                <div
+                    id="selectedStatus"
+                    class="status"
+                ></div>
 
             </div>
 
@@ -352,10 +366,28 @@
 
     let ownedBadges =
         JSON.parse(
-            localStorage.getItem("blockTalesOwnedBadges") || "[]"
+            localStorage.getItem(
+                "blockTalesOwnedBadges"
+            ) || "[]"
         );
 
     let selectedBadgeId = null;
+
+
+    /*
+        Thumbnail cache.
+
+        Once we get an image URL from Roblox,
+        we store it here.
+
+        Example:
+
+        "3699194840755262"
+            ->
+        "https://tr.rbxcdn.com/..."
+    */
+
+    const thumbnailCache = new Map();
 
 
     /*
@@ -415,22 +447,25 @@
                 await fetch(BADGES_FILE);
 
             if (!response.ok) {
+
                 throw new Error(
                     "HTTP " + response.status
                 );
+
             }
 
             const json =
                 await response.json();
 
+
             /*
-                Supports:
+                Support:
 
                 {
                     "data": [...]
                 }
 
-                or simply:
+                OR:
 
                 [...]
             */
@@ -439,7 +474,9 @@
 
                 badges = json;
 
-            } else if (Array.isArray(json.data)) {
+            } else if (
+                Array.isArray(json.data)
+            ) {
 
                 badges = json.data;
 
@@ -451,11 +488,20 @@
 
             }
 
+
             totalCount.textContent =
                 badges.length;
 
             message.style.display =
                 "none";
+
+
+            /*
+                Render the badges ONCE.
+
+                After this, clicking badges will
+                NOT rebuild the grid.
+            */
 
             await renderBadges();
 
@@ -492,25 +538,40 @@
             return "";
         }
 
-        try {
+        const id =
+            String(badge.id);
 
-            /*
-                Build the Roblox thumbnail API URL
-                using the badge ID from badges.json.
-            */
+
+        /*
+            IMPORTANT:
+
+            If we already asked Roblox for this
+            badge's image URL, don't ask again.
+        */
+
+        if (thumbnailCache.has(id)) {
+
+            return thumbnailCache.get(id);
+
+        }
+
+
+        try {
 
             const url =
                 THUMBNAIL_URL.replace(
                     "BADGE_ID",
-                    encodeURIComponent(badge.id)
+                    encodeURIComponent(id)
                 );
 
+
             /*
-                Ask Roblox for the thumbnail information.
+                Ask Roblox's thumbnail API.
             */
 
             const response =
                 await fetch(url);
+
 
             if (!response.ok) {
 
@@ -521,8 +582,17 @@
 
             }
 
+
             /*
-                Example response:
+                Convert Roblox's response to JSON.
+            */
+
+            const json =
+                await response.json();
+
+
+            /*
+                Example:
 
                 {
                     "data": [
@@ -536,14 +606,6 @@
                 }
             */
 
-            const json =
-                await response.json();
-
-            /*
-                Make sure Roblox actually returned
-                an image.
-            */
-
             if (
                 !json.data ||
                 !Array.isArray(json.data) ||
@@ -552,26 +614,45 @@
 
                 console.warn(
                     "No thumbnail returned for badge:",
-                    badge.id
+                    id
                 );
 
                 return "";
 
             }
 
-            /*
-                Extract the imageUrl from:
 
-                data[0].imageUrl
+            /*
+                THIS is the important part.
+
+                Get the actual CDN image URL.
             */
 
-            return json.data[0].imageUrl || "";
+            const imageUrl =
+                json.data[0].imageUrl || "";
+
+
+            /*
+                Store the CDN URL in the cache.
+
+                Future calls for this badge will
+                immediately return this URL without
+                contacting Roblox again.
+            */
+
+            thumbnailCache.set(
+                id,
+                imageUrl
+            );
+
+
+            return imageUrl;
 
         } catch (error) {
 
             console.error(
                 "Failed to load thumbnail for badge " +
-                badge.id,
+                id,
                 error
             );
 
@@ -584,7 +665,7 @@
 
     /*
         ==========================================
-        RENDER GRID
+        RENDER BADGES
         ==========================================
     */
 
@@ -592,95 +673,140 @@
 
         grid.innerHTML = "";
 
+
         /*
-            Load all thumbnails.
-            Promise.all allows them to load
-            at the same time instead of one
-            after another.
+            Get all thumbnail URLs.
+
+            This happens only when the grid is
+            initially rendered.
+
+            The cache prevents duplicate requests.
         */
 
         const thumbnailUrls =
             await Promise.all(
                 badges.map(
-                    badge => getThumbnailUrl(badge)
+                    badge =>
+                        getThumbnailUrl(badge)
                 )
             );
 
-        badges.forEach((badge, index) => {
 
-            const id =
-                String(badge.id);
+        badges.forEach(
+            (badge, index) => {
 
-            const owned =
-                ownedBadges.includes(id);
+                const id =
+                    String(badge.id);
 
-            const element =
-                document.createElement("div");
+                const owned =
+                    ownedBadges.includes(id);
 
-            element.className =
-                "badge " +
-                (owned ? "owned" : "notOwned");
 
-            element.dataset.id =
-                id;
+                const element =
+                    document.createElement("div");
 
-            if (selectedBadgeId === id) {
 
-                element.classList.add(
-                    "selectedBadge"
+                element.className =
+                    "badge " +
+                    (
+                        owned
+                            ? "owned"
+                            : "notOwned"
+                    );
+
+
+                element.dataset.id =
+                    id;
+
+
+                if (
+                    selectedBadgeId === id
+                ) {
+
+                    element.classList.add(
+                        "selectedBadge"
+                    );
+
+                }
+
+
+                /*
+                    Badge image
+                */
+
+                const img =
+                    document.createElement("img");
+
+
+                /*
+                    This is the actual URL
+                    returned by Roblox.
+
+                    Example:
+
+                    https://tr.rbxcdn.com/...
+                */
+
+                img.src =
+                    thumbnailUrls[index];
+
+
+                img.alt =
+                    badge.displayName ||
+                    badge.name ||
+                    "Badge";
+
+
+                img.loading =
+                    "lazy";
+
+
+                img.onerror =
+                    function () {
+
+                        this.style.opacity =
+                            "0.2";
+
+                    };
+
+
+                /*
+                    Badge number
+                */
+
+                const number =
+                    document.createElement("div");
+
+
+                number.className =
+                    "badgeNumber";
+
+
+                number.textContent =
+                    index + 1;
+
+
+                element.appendChild(img);
+                element.appendChild(number);
+
+
+                /*
+                    Clicking the badge ONLY
+                    changes the selected badge.
+
+                    It does NOT call renderBadges().
+                */
+
+                element.addEventListener(
+                    "click",
+                    () => selectBadge(badge)
                 );
 
+
+                grid.appendChild(element);
+
             }
-
-            const img =
-                document.createElement("img");
-
-            /*
-                This is now the actual imageUrl
-                returned by Roblox, for example:
-
-                https://tr.rbxcdn.com/180DAY-.../150/150/Image/Png/noFilter
-            */
-
-            img.src =
-                thumbnailUrls[index];
-
-            img.alt =
-                badge.displayName ||
-                badge.name ||
-                "Badge";
-
-            img.loading =
-                "lazy";
-
-            img.onerror =
-                function () {
-
-                    this.style.opacity =
-                        "0.2";
-
-                };
-
-            const number =
-                document.createElement("div");
-
-            number.className =
-                "badgeNumber";
-
-            number.textContent =
-                index + 1;
-
-            element.appendChild(img);
-            element.appendChild(number);
-
-            element.addEventListener(
-                "click",
-                () => selectBadge(badge)
-            );
-
-            grid.appendChild(element);
-
-        });
+        );
 
     }
 
@@ -696,54 +822,114 @@
         selectedBadgeId =
             String(badge.id);
 
+
         selectedSection.style.display =
             "block";
 
+
         /*
-            Get the actual Roblox image URL
-            for the selected badge.
+            Get the cached URL.
+
+            If it was already loaded during
+            initial rendering, this returns
+            instantly without another API request.
         */
 
-        selectedIcon.src =
+        const imageUrl =
             await getThumbnailUrl(badge);
+
+
+        selectedIcon.src =
+            imageUrl;
+
 
         selectedIcon.alt =
             badge.displayName ||
             badge.name ||
             "Badge";
 
+
         selectedName.textContent =
             badge.displayName ||
             badge.name ||
             "Unnamed Badge";
+
 
         selectedDescription.textContent =
             badge.displayDescription ??
             badge.description ??
             "No description.";
 
+
         selectedId.textContent =
             "Badge ID: " +
             badge.id;
+
 
         ownedCheckbox.checked =
             ownedBadges.includes(
                 String(badge.id)
             );
 
+
         updateSelectedStatus();
 
+
         /*
-            Re-render so the selected badge
-            gets its border.
+            IMPORTANT:
+
+            We DO NOT call renderBadges()
+            here.
+
+            This means the other badge images
+            stay exactly where they are.
         */
 
-        await renderBadges();
+        updateSelectedBadgeVisuals();
+
 
         selectedSection.scrollIntoView({
             behavior: "smooth",
             block: "nearest"
         });
+
+    }
+
+
+    /*
+        ==========================================
+        UPDATE SELECTED BADGE VISUAL
+        ==========================================
+    */
+
+    function updateSelectedBadgeVisuals() {
+
+        const badgeElements =
+            grid.querySelectorAll(".badge");
+
+
+        badgeElements.forEach(
+            element => {
+
+                if (
+                    element.dataset.id ===
+                    selectedBadgeId
+                ) {
+
+                    element.classList.add(
+                        "selectedBadge"
+                    );
+
+                } else {
+
+                    element.classList.remove(
+                        "selectedBadge"
+                    );
+
+                }
+
+            }
+        );
 
     }
 
@@ -761,6 +947,7 @@
             if (!selectedBadgeId) {
                 return;
             }
+
 
             if (this.checked) {
 
@@ -781,29 +968,83 @@
                 ownedBadges =
                     ownedBadges.filter(
                         id =>
-                            id !== selectedBadgeId
+                            id !==
+                            selectedBadgeId
                     );
 
             }
 
+
+            /*
+                Save ownership.
+            */
+
             localStorage.setItem(
                 "blockTalesOwnedBadges",
-                JSON.stringify(ownedBadges)
+                JSON.stringify(
+                    ownedBadges
+                )
             );
+
+
+            /*
+                Update only what actually changed.
+
+                We don't rebuild the whole grid.
+            */
 
             updateProgress();
             updateSelectedStatus();
-
-            /*
-                Don't need to reload Roblox
-                thumbnails here, but renderBadges
-                is async so we call it normally.
-            */
-
-            renderBadges();
+            updateOwnedBadgeVisual();
 
         }
     );
+
+
+    /*
+        ==========================================
+        UPDATE OWNED BADGE VISUAL
+        ==========================================
+    */
+
+    function updateOwnedBadgeVisual() {
+
+        const badgeElement =
+            grid.querySelector(
+                '.badge[data-id="' +
+                selectedBadgeId +
+                '"]'
+            );
+
+
+        if (!badgeElement) {
+            return;
+        }
+
+
+        if (ownedCheckbox.checked) {
+
+            badgeElement.classList.remove(
+                "notOwned"
+            );
+
+            badgeElement.classList.add(
+                "owned"
+            );
+
+        } else {
+
+            badgeElement.classList.remove(
+                "owned"
+            );
+
+            badgeElement.classList.add(
+                "notOwned"
+            );
+
+        }
+
+    }
 
 
     /*
@@ -822,19 +1063,24 @@
                     )
             ).length;
 
+
         const total =
             badges.length;
+
 
         const percent =
             total === 0
                 ? 0
                 : (completed / total) * 100;
 
+
         completedCount.textContent =
             completed;
 
+
         totalCount.textContent =
             total;
+
 
         percentage.textContent =
             formatPercentage(percent);
@@ -867,10 +1113,12 @@
             return;
         }
 
+
         if (ownedCheckbox.checked) {
 
             selectedStatus.textContent =
                 "COMPLETED";
+
 
             selectedStatus.className =
                 "status completed";
@@ -879,6 +1127,7 @@
 
             selectedStatus.textContent =
                 "NOT COMPLETED";
+
 
             selectedStatus.className =
                 "status notCompleted";
@@ -899,8 +1148,10 @@
         const div =
             document.createElement("div");
 
+
         div.textContent =
             String(text);
+
 
         return div.innerHTML;
 
