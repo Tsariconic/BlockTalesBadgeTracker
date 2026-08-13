@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,339 +14,294 @@
         body {
             margin: 0;
             min-height: 100vh;
-            background: #0b0b0f;
-            color: #ffffff;
+            background: #111318;
+            color: #f1f1f1;
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        button,
-        input {
-            font: inherit;
-        }
-
-        .container {
-            width: min(1100px, calc(100% - 32px));
+        .page {
+            width: min(1200px, 94%);
             margin: 0 auto;
+            padding: 45px 0 70px;
         }
 
-        header {
+        /* HEADER */
+
+        .title {
             text-align: center;
-            padding: 55px 0 35px;
-        }
-
-        header h1 {
             margin: 0;
-            font-size: clamp(32px, 6vw, 56px);
+            font-size: clamp(28px, 5vw, 48px);
             font-weight: 800;
-            letter-spacing: -1.5px;
+            letter-spacing: 2px;
         }
 
-        header p {
-            margin: 12px 0 0;
-            color: #9999a6;
-            font-size: 16px;
-        }
-
-        #searchSection {
-            max-width: 600px;
-            margin: 30px auto 70px;
-        }
-
-        .searchBox {
-            display: flex;
-            gap: 10px;
-        }
-
-        #usernameInput {
-            flex: 1;
-            min-width: 0;
-            padding: 16px 18px;
-            border: 1px solid #292930;
-            border-radius: 12px;
-            outline: none;
-            background: #15151b;
-            color: white;
-            transition: border-color 0.2s;
-        }
-
-        #usernameInput:focus {
-            border-color: #666673;
-        }
-
-        #usernameInput::placeholder {
-            color: #777783;
-        }
-
-        #searchButton,
-        #backButton {
-            border: 0;
-            border-radius: 12px;
-            padding: 0 22px;
-            background: white;
-            color: black;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.15s, opacity 0.15s;
-        }
-
-        #searchButton:hover,
-        #backButton:hover {
-            transform: translateY(-1px);
-        }
-
-        #searchButton:disabled {
-            opacity: 0.5;
-            cursor: wait;
-        }
-
-        #error {
+        .progress {
+            text-align: center;
             margin-top: 12px;
-            padding: 12px;
-            border-radius: 10px;
-            background: #291416;
-            color: #ff9da3;
-            display: none;
-            text-align: center;
+            font-size: 20px;
+            color: #bfc3ca;
         }
 
-        #loading {
-            display: none;
-            text-align: center;
-            color: #aaaab4;
-            padding: 40px 0;
+        .progress strong {
+            color: white;
         }
 
-        #tracker {
-            display: none;
-            padding-bottom: 60px;
+        /* SELECTED BADGE */
+
+        .selected-section {
+            margin-top: 40px;
         }
 
-        .trackerTop {
+        .section-line {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            margin-bottom: 28px;
+            gap: 15px;
+            color: #777d87;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
         }
 
-        .progressInfo h2 {
-            margin: 0;
-            font-size: 28px;
+        .section-line::before,
+        .section-line::after {
+            content: "";
+            height: 1px;
+            background: #30343c;
+            flex: 1;
         }
 
-        .progressInfo p {
-            margin: 7px 0 0;
-            color: #9999a6;
-        }
-
-        #backButton {
-            height: 44px;
-        }
-
-        .progressBar {
-            width: 100%;
-            height: 8px;
-            margin-bottom: 30px;
-            overflow: hidden;
-            border-radius: 20px;
-            background: #202027;
-        }
-
-        #progressFill {
-            height: 100%;
-            width: 0%;
-            border-radius: inherit;
-            background: white;
-            transition: width 0.5s ease;
-        }
-
-        #badgeGrid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-            gap: 16px;
-        }
-
-        .badgeCard {
-            position: relative;
-            min-width: 0;
-            padding: 16px;
-            border: 1px solid #24242c;
-            border-radius: 15px;
-            background: #111117;
-            cursor: pointer;
-            transition: transform 0.18s, border-color 0.18s, background 0.18s;
-        }
-
-        .badgeCard:hover {
-            transform: translateY(-4px);
-            border-color: #454550;
-            background: #16161d;
-        }
-
-        .badgeImageWrapper {
-            width: 100%;
-            aspect-ratio: 1;
+        .selected-card {
+            min-height: 250px;
+            border: 1px solid #30343c;
+            background: #181b21;
+            border-radius: 14px;
+            padding: 28px;
             display: flex;
             align-items: center;
+            gap: 40px;
+        }
+
+        .selected-icon-wrapper {
+            width: 210px;
+            min-width: 210px;
+            height: 210px;
+            display: flex;
             justify-content: center;
-            margin-bottom: 12px;
-            border-radius: 10px;
-            overflow: hidden;
+            align-items: center;
         }
 
-        .badgeImage {
-            width: 100%;
-            height: 100%;
+        .selected-icon {
+            width: 200px;
+            height: 200px;
             object-fit: contain;
-            transition: filter 0.25s;
         }
 
-        .badgeImage.locked {
-            filter: grayscale(1) brightness(0.45);
+        .selected-info {
+            flex: 1;
         }
 
-        .badgeName {
-            font-size: 14px;
-            line-height: 1.3;
-            font-weight: 700;
-            text-align: center;
-            word-break: break-word;
+        .selected-name {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .selected-description {
+            color: #b9bdc5;
+            line-height: 1.6;
+            font-size: 16px;
+            white-space: pre-wrap;
+        }
+
+        .checkbox-row {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checkbox-row input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #ffffff;
         }
 
         .status {
-            margin-top: 7px;
-            text-align: center;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            background: #252931;
+            color: #aaaeb7;
         }
 
         .status.completed {
-            color: #8be28b;
+            color: #fff;
+            background: #30353e;
         }
 
-        .status.locked {
-            color: #777783;
+        /* BADGE GRID */
+
+        .grid-section {
+            margin-top: 35px;
         }
 
-        /* Modal */
-
-        #modal {
-            position: fixed;
-            inset: 0;
-            z-index: 100;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(7px);
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
         }
 
-        .modalContent {
-            position: relative;
-            width: min(500px, 100%);
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 35px;
-            border: 1px solid #2d2d36;
-            border-radius: 20px;
-            background: #111117;
-            text-align: center;
-        }
-
-        #closeModal {
-            position: absolute;
-            top: 12px;
-            right: 15px;
-            width: 35px;
-            height: 35px;
-            border: 0;
-            border-radius: 50%;
-            background: #24242c;
-            color: white;
-            font-size: 20px;
+        .badge {
+            border: 1px solid #30343c;
+            background: #181b21;
+            border-radius: 12px;
+            padding: 15px;
             cursor: pointer;
+            transition:
+                transform 0.15s ease,
+                border-color 0.15s ease,
+                background 0.15s ease;
         }
 
-        #modalIcon {
-            width: 220px;
-            height: 220px;
+        .badge:hover {
+            transform: translateY(-3px);
+            border-color: #606672;
+            background: #1d2027;
+        }
+
+        .badge.selected {
+            border-color: #aeb3bd;
+        }
+
+        .badge-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
             object-fit: contain;
-            margin: 5px auto 20px;
         }
 
-        #modalName {
-            margin: 0;
-            font-size: 27px;
+        /*
+         * Unchecked badges are grayscale.
+         */
+
+        .badge:not(.completed) .badge-image {
+            filter: grayscale(100%);
+            opacity: 0.48;
         }
 
-        #modalDescription {
-            margin: 12px 0 20px;
-            color: #a7a7b3;
-            line-height: 1.5;
+        .badge.completed .badge-image {
+            filter: none;
+            opacity: 1;
         }
 
-        #modalStatus {
-            display: inline-block;
-            padding: 9px 15px;
-            border-radius: 9px;
+        .badge-name {
+            margin-top: 10px;
+            text-align: center;
+            color: #c5c8ce;
             font-size: 13px;
-            font-weight: 800;
+            line-height: 1.3;
+            min-height: 34px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        #modalStatus.completed {
-            background: #14351d;
-            color: #8be28b;
+        /* LOADING / ERROR */
+
+        .message {
+            text-align: center;
+            padding: 60px 20px;
+            color: #9297a1;
         }
 
-        #modalStatus.locked {
-            background: #29292f;
-            color: #9999a6;
+        .error {
+            color: #d7a4a4;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+            .badge-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .selected-card {
+                gap: 25px;
+            }
+
+            .selected-icon-wrapper {
+                width: 170px;
+                min-width: 170px;
+                height: 170px;
+            }
+
+            .selected-icon {
+                width: 160px;
+                height: 160px;
+            }
+
+            .selected-name {
+                font-size: 24px;
+            }
         }
 
         @media (max-width: 600px) {
-            .container {
-                width: min(100% - 20px, 1100px);
+            .page {
+                width: 92%;
+                padding-top: 30px;
             }
 
-            header {
-                padding-top: 35px;
-            }
-
-            .searchBox {
-                flex-direction: column;
-            }
-
-            #searchButton {
-                height: 50px;
-            }
-
-            .trackerTop {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            #backButton {
-                width: 100%;
-            }
-
-            #badgeGrid {
-                grid-template-columns: repeat(2, 1fr);
+            .badge-grid {
+                grid-template-columns: repeat(3, 1fr);
                 gap: 10px;
             }
 
-            .badgeCard {
-                padding: 10px;
+            .badge {
+                padding: 9px;
             }
 
-            .modalContent {
-                padding: 25px 20px;
+            .selected-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 22px;
             }
 
-            #modalIcon {
+            .selected-icon-wrapper {
                 width: 180px;
+                min-width: 180px;
                 height: 180px;
+            }
+
+            .selected-icon {
+                width: 170px;
+                height: 170px;
+            }
+
+            .checkbox-row {
+                justify-content: center;
+            }
+
+            .status {
+                margin-top: 12px;
+            }
+
+            .badge-name {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .badge-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -355,300 +309,431 @@
 
 <body>
 
-<div class="container">
+<div class="page">
 
-    <header>
-        <h1>Block Tales Badge Tracker</h1>
-        <p>Track your progress through every Block Tales badge.</p>
-    </header>
+    <h1 class="title">
+        BLOCK TALES BADGE TRACKER
+    </h1>
 
-    <section id="searchSection">
-        <div class="searchBox">
-            <input
-                id="usernameInput"
-                type="text"
-                placeholder="Enter your username"
-                autocomplete="off"
-            >
-
-            <button id="searchButton">
-                Search
-            </button>
-        </div>
-
-        <div id="error"></div>
-    </section>
-
-    <div id="loading">
-        Loading badges...
+    <div class="progress">
+        <strong id="completedCount">0</strong>
+        /
+        <span id="totalCount">70</span>
+        badges
+        |
+        <strong id="percentage">0%</strong>
     </div>
 
-    <section id="tracker">
 
-        <div class="trackerTop">
+    <!-- SELECTED BADGE -->
 
-            <div class="progressInfo">
-                <h2 id="progressText">0 / 0 badges (0%)</h2>
-                <p id="userText"></p>
+    <section class="selected-section">
+
+        <div class="section-line">
+            SELECTED BADGE
+        </div>
+
+        <div class="selected-card">
+
+            <div class="selected-icon-wrapper">
+                <img
+                    id="selectedIcon"
+                    class="selected-icon"
+                    alt=""
+                >
             </div>
 
-            <button id="backButton">
-                Search another user
-            </button>
+            <div class="selected-info">
+
+                <div
+                    id="selectedName"
+                    class="selected-name"
+                >
+                    Select a badge
+                </div>
+
+                <div
+                    id="selectedDescription"
+                    class="selected-description"
+                >
+                    Click a badge below to view its information.
+                </div>
+
+                <label class="checkbox-row">
+
+                    <input
+                        type="checkbox"
+                        id="badgeCheckbox"
+                        disabled
+                    >
+
+                    <span>
+                        I have this badge
+                    </span>
+
+                </label>
+
+                <div
+                    id="selectedStatus"
+                    class="status"
+                >
+                    NOT COMPLETED
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="progressBar">
-            <div id="progressFill"></div>
+        <div class="section-line" style="margin-top: 25px;">
+            SELECTED BADGE
         </div>
 
-        <div id="badgeGrid"></div>
+    </section>
+
+
+    <!-- BADGES -->
+
+    <section class="grid-section">
+
+        <div
+            id="badgeGrid"
+            class="badge-grid"
+        >
+            <div class="message" style="grid-column: 1 / -1;">
+                Loading Block Tales badges...
+            </div>
+        </div>
 
     </section>
 
 </div>
 
-<!-- Badge modal -->
-
-<div id="modal">
-
-    <div class="modalContent">
-
-        <button id="closeModal">&times;</button>
-
-        <img id="modalIcon" src="" alt="Badge icon">
-
-        <h2 id="modalName"></h2>
-
-        <p id="modalDescription"></p>
-
-        <div id="modalStatus"></div>
-
-    </div>
-
-</div>
 
 <script>
-
     /*
-     * ============================
+     * ==========================================
      * CONFIGURATION
-     * ============================
-     */
-
-    const WORKER_URL = "https://blocktalesbadgeworker.guissilly.workers.dev";
-
-    /*
-     * Your Block Tales universe.
+     * ==========================================
      */
 
     const UNIVERSE_ID = "5678284602";
 
+    /*
+     * This is where the tracker stores your
+     * checked badges in the browser.
+     *
+     * It never sends this information anywhere.
+     */
+
+    const STORAGE_KEY =
+        "blockTalesBadgeTracker_completed_v1";
+
 
     /*
-     * ============================
+     * ==========================================
      * ELEMENTS
-     * ============================
+     * ==========================================
      */
 
-    const usernameInput = document.getElementById("usernameInput");
-    const searchButton = document.getElementById("searchButton");
-    const searchSection = document.getElementById("searchSection");
-    const loading = document.getElementById("loading");
-    const tracker = document.getElementById("tracker");
-    const badgeGrid = document.getElementById("badgeGrid");
-    const progressText = document.getElementById("progressText");
-    const progressFill = document.getElementById("progressFill");
-    const userText = document.getElementById("userText");
-    const errorBox = document.getElementById("error");
+    const badgeGrid =
+        document.getElementById("badgeGrid");
 
-    const modal = document.getElementById("modal");
-    const modalIcon = document.getElementById("modalIcon");
-    const modalName = document.getElementById("modalName");
-    const modalDescription = document.getElementById("modalDescription");
-    const modalStatus = document.getElementById("modalStatus");
-    const closeModal = document.getElementById("closeModal");
-    const backButton = document.getElementById("backButton");
+    const completedCount =
+        document.getElementById("completedCount");
+
+    const totalCount =
+        document.getElementById("totalCount");
+
+    const percentage =
+        document.getElementById("percentage");
+
+    const selectedIcon =
+        document.getElementById("selectedIcon");
+
+    const selectedName =
+        document.getElementById("selectedName");
+
+    const selectedDescription =
+        document.getElementById("selectedDescription");
+
+    const badgeCheckbox =
+        document.getElementById("badgeCheckbox");
+
+    const selectedStatus =
+        document.getElementById("selectedStatus");
 
 
     /*
-     * ============================
-     * HELPERS
-     * ============================
+     * ==========================================
+     * DATA
+     * ==========================================
      */
 
-    function showError(message) {
-        errorBox.textContent = message;
-        errorBox.style.display = "block";
-    }
+    let badges = [];
 
-    function hideError() {
-        errorBox.style.display = "none";
-    }
+    let completedBadges =
+        loadCompletedBadges();
 
-    function setLoading(value) {
-        loading.style.display = value ? "block" : "none";
-        searchButton.disabled = value;
-    }
+    let selectedBadgeId = null;
 
 
     /*
-     * ============================
-     * SEARCH
-     * ============================
+     * ==========================================
+     * LOCAL STORAGE
+     * ==========================================
      */
 
-    async function searchUser() {
-
-        const username = usernameInput.value.trim();
-
-        if (!username) {
-            showError("Please enter a Roblox username.");
-            return;
-        }
-
-        hideError();
-        setLoading(true);
+    function loadCompletedBadges() {
 
         try {
 
-            /*
-             * Ask our Cloudflare Worker to do all
-             * Roblox API requests.
-             */
+            const saved =
+                localStorage.getItem(STORAGE_KEY);
 
-            const response = await fetch(
-                `${WORKER_URL}/track?username=${encodeURIComponent(username)}&universeId=${UNIVERSE_ID}`
+            if (!saved) {
+                return new Set();
+            }
+
+            const ids = JSON.parse(saved);
+
+            if (!Array.isArray(ids)) {
+                return new Set();
+            }
+
+            return new Set(
+                ids.map(String)
             );
 
-            const data = await response.json();
+        } catch (error) {
 
-            if (!response.ok) {
-                throw new Error(data.error || "Something went wrong.");
+            console.error(
+                "Could not load saved badges:",
+                error
+            );
+
+            return new Set();
+        }
+    }
+
+
+    function saveCompletedBadges() {
+
+        try {
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(
+                    Array.from(completedBadges)
+                )
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Could not save badges:",
+                error
+            );
+        }
+    }
+
+
+    /*
+     * ==========================================
+     * BADGE ICON URL
+     * ==========================================
+     *
+     * Roblox provides badge icon thumbnails.
+     */
+
+    function getBadgeIconUrl(badge) {
+
+        return (
+            "https://thumbnails.roblox.com/v1/badges/icons" +
+            "?badgeIds=" +
+            encodeURIComponent(badge.id) +
+            "&size=150x150&format=Png&isCircular=false"
+        );
+    }
+
+
+    /*
+     * ==========================================
+     * LOAD BADGES
+     * ==========================================
+     */
+
+    async function loadBadges() {
+
+        try {
+
+            let allBadges = [];
+
+            let cursor = null;
+
+            /*
+             * Load every page of badges.
+             *
+             * This means you don't need to manually
+             * update the site if Block Tales gets
+             * more badges.
+             */
+
+            do {
+
+                let url =
+                    `https://badges.roblox.com/v1/universes/${UNIVERSE_ID}/badges?limit=100&sortOrder=Asc`;
+
+                if (cursor) {
+
+                    url +=
+                        `&cursor=${encodeURIComponent(cursor)}`;
+                }
+
+                const response =
+                    await fetch(url);
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `Roblox returned HTTP ${response.status}`
+                    );
+                }
+
+                const data =
+                    await response.json();
+
+                if (Array.isArray(data.data)) {
+
+                    allBadges.push(
+                        ...data.data
+                    );
+                }
+
+                cursor =
+                    data.nextPageCursor || null;
+
+            } while (cursor);
+
+
+            /*
+             * Sort by badge ID so the ordering stays
+             * consistent between visits.
+             */
+
+            allBadges.sort(
+                (a, b) =>
+                    Number(a.id) -
+                    Number(b.id)
+            );
+
+
+            badges = allBadges;
+
+            totalCount.textContent =
+                badges.length;
+
+            renderBadges();
+
+            updateProgress();
+
+            /*
+             * Automatically select the first badge.
+             */
+
+            if (badges.length > 0) {
+
+                selectBadge(
+                    badges[0].id
+                );
             }
-
-            if (!data.user) {
-                throw new Error("Roblox user not found.");
-            }
-
-            displayResults(data);
 
         } catch (error) {
 
             console.error(error);
 
-            showError(
-                error.message ||
-                "Unable to load this Roblox user."
-            );
-
-        } finally {
-
-            setLoading(false);
-
+            badgeGrid.innerHTML = `
+                <div
+                    class="message error"
+                    style="grid-column: 1 / -1;"
+                >
+                    Could not load the Block Tales badges.
+                    <br><br>
+                    Please refresh the page and try again.
+                </div>
+            `;
         }
     }
 
 
     /*
-     * ============================
-     * DISPLAY RESULTS
-     * ============================
+     * ==========================================
+     * RENDER BADGES
+     * ==========================================
      */
 
-    function displayResults(data) {
-
-        searchSection.style.display = "none";
-        loading.style.display = "none";
-        tracker.style.display = "block";
+    function renderBadges() {
 
         badgeGrid.innerHTML = "";
 
-        const badges = data.badges || [];
-
-        const completedCount = badges.filter(
-            badge => badge.completed
-        ).length;
-
-        const total = badges.length;
-
-        const percentage = total === 0
-            ? 0
-            : Math.round((completedCount / total) * 100);
-
-        progressText.textContent =
-            `${completedCount} / ${total} badges (${percentage}%)`;
-
-        userText.textContent =
-            `Showing badges for ${data.user.name}`;
-
-        progressFill.style.width =
-            `${percentage}%`;
-
-        /*
-         * Sort completed badges first.
-         */
-
-        badges.sort((a, b) => {
-
-            if (a.completed !== b.completed) {
-                return a.completed ? -1 : 1;
-            }
-
-            return a.name.localeCompare(b.name);
-
-        });
-
         for (const badge of badges) {
 
-            const card = document.createElement("div");
-            card.className = "badgeCard";
+            const completed =
+                completedBadges.has(
+                    String(badge.id)
+                );
 
-            const imageWrapper = document.createElement("div");
-            imageWrapper.className = "badgeImageWrapper";
+            const card =
+                document.createElement("div");
 
-            const image = document.createElement("img");
-            image.className = "badgeImage";
+            card.className =
+                "badge" +
+                (completed
+                    ? " completed"
+                    : "");
 
-            if (!badge.completed) {
-                image.classList.add("locked");
-            }
+            card.dataset.badgeId =
+                badge.id;
 
-            image.src = badge.iconUrl;
-            image.alt = badge.name;
 
-            /*
-             * Prevent broken images from looking ugly.
-             */
+            const image =
+                document.createElement("img");
 
-            image.onerror = () => {
-                image.style.opacity = "0.2";
-            };
+            image.className =
+                "badge-image";
 
-            imageWrapper.appendChild(image);
+            image.alt =
+                badge.name || "Badge";
 
-            const name = document.createElement("div");
-            name.className = "badgeName";
-            name.textContent = badge.name;
+            image.loading =
+                "lazy";
 
-            const status = document.createElement("div");
-            status.className =
-                badge.completed
-                    ? "status completed"
-                    : "status locked";
+            image.src =
+                getBadgeIconUrl(badge);
 
-            status.textContent =
-                badge.completed
-                    ? "COMPLETED"
-                    : "NOT COMPLETED";
 
-            card.appendChild(imageWrapper);
+            const name =
+                document.createElement("div");
+
+            name.className =
+                "badge-name";
+
+            name.textContent =
+                badge.name ||
+                "Unnamed Badge";
+
+
+            card.appendChild(image);
+
             card.appendChild(name);
-            card.appendChild(status);
 
-            card.addEventListener("click", () => {
-                openModal(badge);
-            });
+
+            card.addEventListener(
+                "click",
+                () => {
+                    selectBadge(badge.id);
+                }
+            );
+
 
             badgeGrid.appendChild(card);
         }
@@ -656,109 +741,232 @@
 
 
     /*
-     * ============================
-     * MODAL
-     * ============================
+     * ==========================================
+     * SELECT BADGE
+     * ==========================================
      */
 
-    function openModal(badge) {
+    function selectBadge(id) {
 
-        modalIcon.src = badge.iconUrl;
-        modalName.textContent = badge.name;
+        const badge =
+            badges.find(
+                item =>
+                    String(item.id) ===
+                    String(id)
+            );
 
-        modalDescription.textContent =
+        if (!badge) {
+            return;
+        }
+
+        selectedBadgeId =
+            String(badge.id);
+
+
+        /*
+         * Highlight selected badge.
+         */
+
+        document
+            .querySelectorAll(".badge")
+            .forEach(card => {
+
+                card.classList.toggle(
+                    "selected",
+                    String(card.dataset.badgeId) ===
+                    selectedBadgeId
+                );
+            });
+
+
+        /*
+         * Update large icon.
+         */
+
+        selectedIcon.src =
+            getBadgeIconUrl(badge);
+
+        selectedIcon.alt =
+            badge.name || "Badge";
+
+
+        /*
+         * Update information.
+         */
+
+        selectedName.textContent =
+            badge.name ||
+            "Unnamed Badge";
+
+        selectedDescription.textContent =
             badge.description ||
             "No description available.";
 
-        modalStatus.textContent =
-            badge.completed
+
+        /*
+         * Update checkbox.
+         */
+
+        const completed =
+            completedBadges.has(
+                selectedBadgeId
+            );
+
+        badgeCheckbox.disabled =
+            false;
+
+        badgeCheckbox.checked =
+            completed;
+
+        updateSelectedStatus(
+            completed
+        );
+    }
+
+
+    /*
+     * ==========================================
+     * CHECKBOX
+     * ==========================================
+     */
+
+    badgeCheckbox.addEventListener(
+        "change",
+        () => {
+
+            if (!selectedBadgeId) {
+                return;
+            }
+
+            if (badgeCheckbox.checked) {
+
+                completedBadges.add(
+                    selectedBadgeId
+                );
+
+            } else {
+
+                completedBadges.delete(
+                    selectedBadgeId
+                );
+            }
+
+
+            /*
+             * Save immediately.
+             */
+
+            saveCompletedBadges();
+
+
+            /*
+             * Update badge grid.
+             */
+
+            const card =
+                document.querySelector(
+                    `.badge[data-badge-id="${CSS.escape(selectedBadgeId)}"]`
+                );
+
+            if (card) {
+
+                card.classList.toggle(
+                    "completed",
+                    badgeCheckbox.checked
+                );
+            }
+
+
+            updateSelectedStatus(
+                badgeCheckbox.checked
+            );
+
+            updateProgress();
+        }
+    );
+
+
+    /*
+     * ==========================================
+     * SELECTED STATUS
+     * ==========================================
+     */
+
+    function updateSelectedStatus(completed) {
+
+        selectedStatus.textContent =
+            completed
                 ? "COMPLETED"
                 : "NOT COMPLETED";
 
-        modalStatus.className =
-            badge.completed
-                ? "completed"
-                : "locked";
-
-        modal.style.display = "flex";
+        selectedStatus.classList.toggle(
+            "completed",
+            completed
+        );
     }
 
 
-    function closeBadgeModal() {
-        modal.style.display = "none";
+    /*
+     * ==========================================
+     * PROGRESS
+     * ==========================================
+     */
+
+    function updateProgress() {
+
+        /*
+         * Remove saved IDs that aren't actually
+         * part of the current badge list.
+         */
+
+        const validIds =
+            new Set(
+                badges.map(
+                    badge => String(badge.id)
+                )
+            );
+
+        completedBadges =
+            new Set(
+                Array.from(
+                    completedBadges
+                ).filter(
+                    id => validIds.has(id)
+                )
+            );
+
+        const count =
+            completedBadges.size;
+
+        const total =
+            badges.length;
+
+        const percent =
+            total === 0
+                ? 0
+                : (count / total) * 100;
+
+
+        completedCount.textContent =
+            count;
+
+        totalCount.textContent =
+            total;
+
+        percentage.textContent =
+            `${percent.toFixed(1)}%`;
     }
 
 
-    closeModal.addEventListener(
-        "click",
-        closeBadgeModal
-    );
-
-
-    modal.addEventListener("click", event => {
-
-        if (event.target === modal) {
-            closeBadgeModal();
-        }
-
-    });
-
-
-    document.addEventListener("keydown", event => {
-
-        if (event.key === "Escape") {
-            closeBadgeModal();
-        }
-
-    });
-
-
     /*
-     * ============================
-     * SEARCH ANOTHER USER
-     * ============================
+     * ==========================================
+     * START
+     * ==========================================
      */
 
-    backButton.addEventListener("click", () => {
-
-        tracker.style.display = "none";
-        searchSection.style.display = "block";
-
-        usernameInput.value = "";
-        usernameInput.focus();
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    });
-
-
-    /*
-     * ============================
-     * BUTTON / ENTER KEY
-     * ============================
-     */
-
-    searchButton.addEventListener(
-        "click",
-        searchUser
-    );
-
-    usernameInput.addEventListener(
-        "keydown",
-        event => {
-
-            if (event.key === "Enter") {
-                searchUser();
-            }
-
-        }
-    );
+    loadBadges();
 
 </script>
 
 </body>
 </html>
-
