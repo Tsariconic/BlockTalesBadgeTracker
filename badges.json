@@ -1,0 +1,1436 @@
+{
+  "previousPageCursor": null,
+  "nextPageCursor": null,
+  "data": [
+    {
+      "id": 3699194840755262,
+      "name": "Attend VIP",
+      "description": "Welcome to the convention!",
+      "displayName": "Attend VIP",
+      "displayDescription": "Welcome to the convention!",
+      "enabled": true,
+      "iconImageId": 91387317275787,
+      "displayIconImageId": 91387317275787,
+      "created": "2025-05-09T08:23:04.103+00:00",
+      "updated": "2025-05-20T14:01:48.407+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 3965,
+        "awardedCount": 4171749,
+        "winRatePercentage": 0.207
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 4389473357799115,
+      "name": "Played Demo 1",
+      "description": "Thanks for playing!",
+      "displayName": "Played Demo 1",
+      "displayDescription": "Thanks for playing!",
+      "enabled": true,
+      "iconImageId": 17368689772,
+      "displayIconImageId": 17368689772,
+      "created": "2024-04-30T02:10:21.905+00:00",
+      "updated": "2024-05-05T06:52:56.093+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 0,
+        "awardedCount": 2862351,
+        "winRatePercentage": 0
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1139882288313632,
+      "name": "Humble Beginnings",
+      "description": "Start a new save file.",
+      "displayName": "Humble Beginnings",
+      "displayDescription": "Start a new save file.",
+      "enabled": true,
+      "iconImageId": 17377212816,
+      "displayIconImageId": 17377212816,
+      "created": "2024-04-30T02:10:56.071+00:00",
+      "updated": "2024-05-04T05:50:32.632+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 5764,
+        "awardedCount": 13434160,
+        "winRatePercentage": 0.3
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 691762175450711,
+      "name": "A Price to Pay",
+      "description": "Anger the gods.",
+      "displayName": "A Price to Pay",
+      "displayDescription": "Anger the gods.",
+      "enabled": true,
+      "iconImageId": 17369251290,
+      "displayIconImageId": 17369251290,
+      "created": "2024-04-30T02:11:29.77+00:00",
+      "updated": "2024-05-03T18:20:38.194+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 948,
+        "awardedCount": 2733401,
+        "winRatePercentage": 0.049
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 764689743227730,
+      "name": "Free Balloon Day",
+      "description": "Ruin the clown's day.",
+      "displayName": "Free Balloon Day",
+      "displayDescription": "Ruin the clown's day.",
+      "enabled": true,
+      "iconImageId": 17496115336,
+      "displayIconImageId": 17496115336,
+      "created": "2024-05-14T03:20:32.233+00:00",
+      "updated": "2024-05-14T23:08:57.391+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 417,
+        "awardedCount": 1150360,
+        "winRatePercentage": 0.022
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3449530062568057,
+      "name": "Buyers Remorse",
+      "description": "Reallocate your stats.",
+      "displayName": "Buyers Remorse",
+      "displayDescription": "Reallocate your stats.",
+      "enabled": true,
+      "iconImageId": 70961761208026,
+      "displayIconImageId": 70961761208026,
+      "created": "2024-07-15T08:12:47.14+00:00",
+      "updated": "2024-10-19T15:00:55.578+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 237,
+        "awardedCount": 622808,
+        "winRatePercentage": 0.012
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 102724716577613,
+      "name": "King of the Sea",
+      "description": "Catch all 10 fish.",
+      "displayName": "King of the Sea",
+      "displayDescription": "Catch all 10 fish.",
+      "enabled": true,
+      "iconImageId": 17514456816,
+      "displayIconImageId": 17514456816,
+      "created": "2024-05-16T06:16:14.452+00:00",
+      "updated": "2024-05-16T22:31:39.42+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 41,
+        "awardedCount": 92779,
+        "winRatePercentage": 0.002
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 777716232943653,
+      "name": "Hello World",
+      "description": "Complete the prologue.",
+      "displayName": "Hello World",
+      "displayDescription": "Complete the prologue.",
+      "enabled": true,
+      "iconImageId": 125767213779838,
+      "displayIconImageId": 125767213779838,
+      "created": "2024-04-30T02:12:11.132+00:00",
+      "updated": "2026-04-14T07:43:46.495+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 2216,
+        "awardedCount": 5498673,
+        "winRatePercentage": 0.115
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1776500205529952,
+      "name": "Baller",
+      "description": "Successfully hit 4 action commands in a single line bounce. ",
+      "displayName": "Baller",
+      "displayDescription": "Successfully hit 4 action commands in a single line bounce. ",
+      "enabled": true,
+      "iconImageId": 17377580489,
+      "displayIconImageId": 17377580489,
+      "created": "2024-04-30T02:12:22.859+00:00",
+      "updated": "2024-05-04T06:43:53.964+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 540,
+        "awardedCount": 1270550,
+        "winRatePercentage": 0.028
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1608884452854503,
+      "name": "Bombastic",
+      "description": "Defeat 4 enemies with one bomb.",
+      "displayName": "Bombastic",
+      "displayDescription": "Defeat 4 enemies with one bomb.",
+      "enabled": true,
+      "iconImageId": 17496112865,
+      "displayIconImageId": 17496112865,
+      "created": "2024-05-14T03:23:29.487+00:00",
+      "updated": "2024-05-14T23:08:30.97+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 220,
+        "awardedCount": 833371,
+        "winRatePercentage": 0.011
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 4212485096724281,
+      "name": "Pretty Fire",
+      "description": "These guys are pretty cool ngl...",
+      "displayName": "Pretty Fire",
+      "displayDescription": "These guys are pretty cool ngl...",
+      "enabled": true,
+      "iconImageId": 17493311397,
+      "displayIconImageId": 17493311397,
+      "created": "2024-05-14T03:22:50.815+00:00",
+      "updated": "2024-05-14T16:54:09.19+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 303,
+        "awardedCount": 1031758,
+        "winRatePercentage": 0.016
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2038382095181183,
+      "name": "Pretty Cool",
+      "description": "These guys are pretty fire ngl...",
+      "displayName": "Pretty Cool",
+      "displayDescription": "These guys are pretty fire ngl...",
+      "enabled": true,
+      "iconImageId": 17493309244,
+      "displayIconImageId": 17493309244,
+      "created": "2024-05-14T03:23:10.388+00:00",
+      "updated": "2024-05-14T16:53:56.145+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 482,
+        "awardedCount": 1232953,
+        "winRatePercentage": 0.025
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 4450778230258450,
+      "name": "Rock and a Hard Place",
+      "description": "Free Jim and collect your reward.",
+      "displayName": "Rock and a Hard Place",
+      "displayDescription": "Free Jim and collect your reward.",
+      "enabled": true,
+      "iconImageId": 17496111263,
+      "displayIconImageId": 17496111263,
+      "created": "2024-05-14T03:20:54.039+00:00",
+      "updated": "2024-05-14T23:08:16.719+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 219,
+        "awardedCount": 642441,
+        "winRatePercentage": 0.011
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 4174918462724797,
+      "name": "Hot Seat",
+      "description": "Never saw it coming...",
+      "displayName": "Hot Seat",
+      "displayDescription": "Never saw it coming...",
+      "enabled": true,
+      "iconImageId": 17493310300,
+      "displayIconImageId": 17493310300,
+      "created": "2024-05-14T03:21:28.121+00:00",
+      "updated": "2024-05-14T16:54:01.562+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 794,
+        "awardedCount": 1800410,
+        "winRatePercentage": 0.041
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3221992242332424,
+      "name": "Savior",
+      "description": "Save a friend from being downed in battle.",
+      "displayName": "Savior",
+      "displayDescription": "Save a friend from being downed in battle.",
+      "enabled": true,
+      "iconImageId": 17496112361,
+      "displayIconImageId": 17496112361,
+      "created": "2024-05-14T03:23:44.011+00:00",
+      "updated": "2024-11-08T19:48:32.501+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 294,
+        "awardedCount": 771026,
+        "winRatePercentage": 0.015
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 958172574075893,
+      "name": "Stylish",
+      "description": "Defeat the Cruel King without taking damage.",
+      "displayName": "Stylish",
+      "displayDescription": "Defeat the Cruel King without taking damage.",
+      "enabled": true,
+      "iconImageId": 17496107385,
+      "displayIconImageId": 17496107385,
+      "created": "2024-05-14T03:23:58.655+00:00",
+      "updated": "2024-05-14T23:07:36.746+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 222,
+        "awardedCount": 806885,
+        "winRatePercentage": 0.012
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2394984146566261,
+      "name": "Dethroned",
+      "description": "Complete chapter 1.",
+      "displayName": "Dethroned",
+      "displayDescription": "Complete chapter 1.",
+      "enabled": true,
+      "iconImageId": 17369252030,
+      "displayIconImageId": 17369252030,
+      "created": "2024-04-30T02:12:50.863+00:00",
+      "updated": "2024-05-03T18:18:33.282+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 1408,
+        "awardedCount": 3173335,
+        "winRatePercentage": 0.073
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 244811119938971,
+      "name": "Bloxxer",
+      "description": "Beat all chapter 1 bosses on Hard Mode.",
+      "displayName": "Bloxxer",
+      "displayDescription": "Beat all chapter 1 bosses on Hard Mode.",
+      "enabled": true,
+      "iconImageId": 17565279483,
+      "displayIconImageId": 17565279483,
+      "created": "2024-05-14T03:21:51.699+00:00",
+      "updated": "2026-02-16T08:11:52.051+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 229,
+        "awardedCount": 439892,
+        "winRatePercentage": 0.012
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2943328524701113,
+      "name": "Heartless",
+      "description": "How could you?",
+      "displayName": "Heartless",
+      "displayDescription": "How could you?",
+      "enabled": true,
+      "iconImageId": 17377076665,
+      "displayIconImageId": 17377076665,
+      "created": "2024-05-03T10:58:54.017+00:00",
+      "updated": "2024-05-04T05:30:40.924+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 101,
+        "awardedCount": 284350,
+        "winRatePercentage": 0.005
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2696922580678743,
+      "name": "True DPS",
+      "description": "Deal over 12 damage in one hit.",
+      "displayName": "True DPS",
+      "displayDescription": "Deal over 12 damage in one hit.",
+      "enabled": true,
+      "iconImageId": 17502009486,
+      "displayIconImageId": 17502009486,
+      "created": "2024-05-14T03:22:11.184+00:00",
+      "updated": "2024-07-06T12:57:01.413+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 97,
+        "awardedCount": 297961,
+        "winRatePercentage": 0.005
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2143368607894323,
+      "name": "Played Demo 2",
+      "description": "Thanks for playing! (Again.)",
+      "displayName": "Played Demo 2",
+      "displayDescription": "Thanks for playing! (Again.)",
+      "enabled": true,
+      "iconImageId": 18297079677,
+      "displayIconImageId": 18297079677,
+      "created": "2024-06-10T20:44:13.436+00:00",
+      "updated": "2024-07-02T01:51:49.305+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 0,
+        "awardedCount": 2724110,
+        "winRatePercentage": 0
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1335237642473194,
+      "name": "Personal Baggage",
+      "description": "Face your problems head on with the help of a wise man.",
+      "displayName": "Personal Baggage",
+      "displayDescription": "Face your problems head on with the help of a wise man.",
+      "enabled": true,
+      "iconImageId": 18297086511,
+      "displayIconImageId": 18297086511,
+      "created": "2024-07-01T09:01:01.932+00:00",
+      "updated": "2024-07-02T01:52:32.892+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 586,
+        "awardedCount": 1586821,
+        "winRatePercentage": 0.031
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3838023764735105,
+      "name": "A Call for Help!",
+      "description": "Earn the respect of the Blackrock King.",
+      "displayName": "A Call for Help!",
+      "displayDescription": "Earn the respect of the Blackrock King.",
+      "enabled": true,
+      "iconImageId": 94176926400846,
+      "displayIconImageId": 94176926400846,
+      "created": "2024-07-15T08:12:27.706+00:00",
+      "updated": "2026-03-11T02:07:46.013+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 401,
+        "awardedCount": 1249205,
+        "winRatePercentage": 0.021
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 446267840588704,
+      "name": "Helpful Hand",
+      "description": "You're too kind deary...",
+      "displayName": "Helpful Hand",
+      "displayDescription": "You're too kind deary...",
+      "enabled": true,
+      "iconImageId": 18253438957,
+      "displayIconImageId": 18253438957,
+      "created": "2024-06-10T20:47:45.61+00:00",
+      "updated": "2024-06-29T01:30:07.982+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 133,
+        "awardedCount": 365434,
+        "winRatePercentage": 0.007
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 4348740485937388,
+      "name": "Good Noodle",
+      "description": "Beat the Mudroads high score at the Arcade.",
+      "displayName": "Good Noodle",
+      "displayDescription": "Beat the Mudroads high score at the Arcade.",
+      "enabled": true,
+      "iconImageId": 18253431408,
+      "displayIconImageId": 18253431408,
+      "created": "2024-06-10T20:48:02.266+00:00",
+      "updated": "2024-06-29T01:29:27.742+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 43,
+        "awardedCount": 135385,
+        "winRatePercentage": 0.002
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2572276247665338,
+      "name": "Is this a joke?",
+      "description": "Maybe you should have ran instead...",
+      "displayName": "Is this a joke?",
+      "displayDescription": "Maybe you should have ran instead...",
+      "enabled": true,
+      "iconImageId": 18253421912,
+      "displayIconImageId": 18253421912,
+      "created": "2024-06-11T05:44:47.835+00:00",
+      "updated": "2024-06-29T01:28:43.355+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 11,
+        "awardedCount": 40262,
+        "winRatePercentage": 0.001
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2373714563391669,
+      "name": "Panacea",
+      "description": "Complete chapter 2.",
+      "displayName": "Panacea",
+      "displayDescription": "Complete chapter 2.",
+      "enabled": true,
+      "iconImageId": 18297098635,
+      "displayIconImageId": 18297098635,
+      "created": "2024-06-10T20:44:58.386+00:00",
+      "updated": "2024-07-02T01:53:50.712+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 1046,
+        "awardedCount": 2157783,
+        "winRatePercentage": 0.054
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3050279579068473,
+      "name": "Dangerous Living",
+      "description": "Beat all chapter 2 bosses on Hard Mode.",
+      "displayName": "Dangerous Living",
+      "displayDescription": "Beat all chapter 2 bosses on Hard Mode.",
+      "enabled": true,
+      "iconImageId": 18404711115,
+      "displayIconImageId": 18404711115,
+      "created": "2024-06-23T00:06:17.161+00:00",
+      "updated": "2026-02-16T08:12:07.412+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 170,
+        "awardedCount": 299148,
+        "winRatePercentage": 0.009
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3292414628447926,
+      "name": "Alternate Reality",
+      "description": "Defeat Supreme Mosquito.",
+      "displayName": "Alternate Reality",
+      "displayDescription": "Defeat Supreme Mosquito.",
+      "enabled": true,
+      "iconImageId": 18253449714,
+      "displayIconImageId": 18253449714,
+      "created": "2024-06-23T00:02:01.53+00:00",
+      "updated": "2026-03-11T23:56:35.861+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 336,
+        "awardedCount": 732327,
+        "winRatePercentage": 0.018
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1779360029641454,
+      "name": "Played Demo 3",
+      "description": "Thanks for playing (Again... again.)",
+      "displayName": "Played Demo 3",
+      "displayDescription": "Thanks for playing (Again... again.)",
+      "enabled": true,
+      "iconImageId": 94826830856990,
+      "displayIconImageId": 94826830856990,
+      "created": "2024-07-15T07:11:31.563+00:00",
+      "updated": "2024-10-19T14:59:51.79+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 0,
+        "awardedCount": 4764856,
+        "winRatePercentage": 0
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 28133655861645,
+      "name": "Disgusting Mistake",
+      "description": "You didn't have to eat that.",
+      "displayName": "Disgusting Mistake",
+      "displayDescription": "You didn't have to eat that.",
+      "enabled": true,
+      "iconImageId": 71649483036622,
+      "displayIconImageId": 71649483036622,
+      "created": "2024-07-15T08:13:56.009+00:00",
+      "updated": "2024-10-19T15:00:25.997+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 168,
+        "awardedCount": 486400,
+        "winRatePercentage": 0.009
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2302929774883177,
+      "name": "Noisemaker",
+      "description": "Discover all sounds on the megaphone in one session.",
+      "displayName": "Noisemaker",
+      "displayDescription": "Discover all sounds on the megaphone in one session.",
+      "enabled": true,
+      "iconImageId": 75102189681421,
+      "displayIconImageId": 75102189681421,
+      "created": "2024-10-04T15:24:24.774+00:00",
+      "updated": "2026-03-08T22:29:22.214+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 33,
+        "awardedCount": 122122,
+        "winRatePercentage": 0.002
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 832101721793665,
+      "name": "Redemption",
+      "description": "Complete chapter 3.",
+      "displayName": "Redemption",
+      "displayDescription": "Complete chapter 3.",
+      "enabled": true,
+      "iconImageId": 96037096022266,
+      "displayIconImageId": 96037096022266,
+      "created": "2024-07-15T07:15:29.602+00:00",
+      "updated": "2024-10-25T20:46:45.427+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 883,
+        "awardedCount": 1676361,
+        "winRatePercentage": 0.046
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2057465655300228,
+      "name": "Monster Hunter",
+      "description": "Beat all chapter 3 bosses on Hard Mode.",
+      "displayName": "Monster Hunter",
+      "displayDescription": "Beat all chapter 3 bosses on Hard Mode.",
+      "enabled": true,
+      "iconImageId": 116460328068979,
+      "displayIconImageId": 116460328068979,
+      "created": "2024-07-15T07:13:26.575+00:00",
+      "updated": "2026-02-16T08:12:27.071+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 110,
+        "awardedCount": 189578,
+        "winRatePercentage": 0.006
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1389398536151972,
+      "name": "Played Demo 4",
+      "description": "Thanks for playing (Again x3)",
+      "displayName": "Played Demo 4",
+      "displayDescription": "Thanks for playing (Again x3)",
+      "enabled": true,
+      "iconImageId": 124968626572703,
+      "displayIconImageId": 124968626572703,
+      "created": "2025-04-30T10:32:44.196+00:00",
+      "updated": "2025-05-22T18:01:18.742+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 0,
+        "awardedCount": 7221415,
+        "winRatePercentage": 0
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3963974437177436,
+      "name": "So it's true...",
+      "description": "Test the rumors.",
+      "displayName": "So it's true...",
+      "displayDescription": "Test the rumors.",
+      "enabled": true,
+      "iconImageId": 84942197029637,
+      "displayIconImageId": 84942197029637,
+      "created": "2025-04-30T10:43:35.343+00:00",
+      "updated": "2025-05-26T06:01:41.404+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 38,
+        "awardedCount": 144892,
+        "winRatePercentage": 0.002
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2509004810214161,
+      "name": "Strange Tastes",
+      "description": "Discover THE SPECIAL!!!!!!!!!!!!",
+      "displayName": "Strange Tastes",
+      "displayDescription": "Discover THE SPECIAL!!!!!!!!!!!!",
+      "enabled": true,
+      "iconImageId": 117346479274794,
+      "displayIconImageId": 117346479274794,
+      "created": "2025-04-30T10:37:35.923+00:00",
+      "updated": "2025-05-26T06:26:38.83+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 558,
+        "awardedCount": 1055703,
+        "winRatePercentage": 0.029
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 150216660399500,
+      "name": "True Panacea",
+      "description": "Recruit Brad Thaniyel after providing a cure to his venomous condition.",
+      "displayName": "True Panacea",
+      "displayDescription": "Recruit Brad Thaniyel after providing a cure to his venomous condition.",
+      "enabled": true,
+      "iconImageId": 93385445259968,
+      "displayIconImageId": 93385445259968,
+      "created": "2025-04-30T10:38:37.771+00:00",
+      "updated": "2026-03-31T03:28:48.297+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 561,
+        "awardedCount": 1054234,
+        "winRatePercentage": 0.029
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1500535802406890,
+      "name": "Heat Resistant",
+      "description": "Complete chapter 4.",
+      "displayName": "Heat Resistant",
+      "displayDescription": "Complete chapter 4.",
+      "enabled": true,
+      "iconImageId": 91819251408957,
+      "displayIconImageId": 91819251408957,
+      "created": "2025-04-30T10:33:13.316+00:00",
+      "updated": "2025-05-22T18:01:21.658+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 736,
+        "awardedCount": 1286408,
+        "winRatePercentage": 0.038
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1919880682666191,
+      "name": "Blood Red Sun",
+      "description": "Beat all chapter 4 bosses on Hard Mode.",
+      "displayName": "Blood Red Sun",
+      "displayDescription": "Beat all chapter 4 bosses on Hard Mode.",
+      "enabled": true,
+      "iconImageId": 116591483970532,
+      "displayIconImageId": 116591483970532,
+      "created": "2025-04-30T10:38:05.311+00:00",
+      "updated": "2026-02-16T08:12:24.327+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 83,
+        "awardedCount": 118857,
+        "winRatePercentage": 0.004
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2601403376408669,
+      "name": "Converging Timelines",
+      "description": "Defeat Finn McCool!",
+      "displayName": "Converging Timelines",
+      "displayDescription": "Defeat Finn McCool!",
+      "enabled": true,
+      "iconImageId": 79166536127082,
+      "displayIconImageId": 79166536127082,
+      "created": "2025-04-30T10:33:39.978+00:00",
+      "updated": "2026-03-09T10:13:50.005+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 325,
+        "awardedCount": 554019,
+        "winRatePercentage": 0.017
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 4482853366466650,
+      "name": "Played Demo 5",
+      "description": "Thanks for playing (Again x4)",
+      "displayName": "Played Demo 5",
+      "displayDescription": "Thanks for playing (Again x4)",
+      "enabled": true,
+      "iconImageId": 90678926869171,
+      "displayIconImageId": 90678926869171,
+      "created": "2025-09-28T02:29:31.988+00:00",
+      "updated": "2026-02-26T16:50:11.809+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 8889,
+        "awardedCount": 3591679,
+        "winRatePercentage": 0.463
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2329245851187956,
+      "name": "What are the odds?",
+      "description": "1 in 100 camels...",
+      "displayName": "What are the odds?",
+      "displayDescription": "1 in 100 camels...",
+      "enabled": true,
+      "iconImageId": 88605444378893,
+      "displayIconImageId": 88605444378893,
+      "created": "2025-09-28T02:32:13.574+00:00",
+      "updated": "2026-03-09T10:12:04.721+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 27,
+        "awardedCount": 62865,
+        "winRatePercentage": 0.001
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2683535123761875,
+      "name": "Uncanny Encounter",
+      "description": "There's trouble in the basement...",
+      "displayName": "Uncanny Encounter",
+      "displayDescription": "There's trouble in the basement...",
+      "enabled": true,
+      "iconImageId": 120696379376953,
+      "displayIconImageId": 120696379376953,
+      "created": "2025-09-28T02:31:36.629+00:00",
+      "updated": "2026-03-09T10:11:46.412+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 277,
+        "awardedCount": 314311,
+        "winRatePercentage": 0.014
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1539662160119209,
+      "name": "No Biggie...",
+      "description": "Recreate the Mona Lisa.",
+      "displayName": "No Biggie...",
+      "displayDescription": "Recreate the Mona Lisa.",
+      "enabled": true,
+      "iconImageId": 97432019824579,
+      "displayIconImageId": 97432019824579,
+      "created": "2025-09-28T02:30:22.267+00:00",
+      "updated": "2026-03-08T22:33:01.658+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 272,
+        "awardedCount": 343699,
+        "winRatePercentage": 0.014
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1793470115571814,
+      "name": "Proof of a Hero",
+      "description": "Evacuate 10 civilians.",
+      "displayName": "Proof of a Hero",
+      "displayDescription": "Evacuate 10 civilians.",
+      "enabled": true,
+      "iconImageId": 92503980111982,
+      "displayIconImageId": 92503980111982,
+      "created": "2025-09-28T02:32:31.376+00:00",
+      "updated": "2026-03-09T10:11:34.315+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 297,
+        "awardedCount": 321147,
+        "winRatePercentage": 0.015
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1036121074097199,
+      "name": "Windproof",
+      "description": "Complete chapter 5.",
+      "displayName": "Windproof",
+      "displayDescription": "Complete chapter 5.",
+      "enabled": true,
+      "iconImageId": 70996912643718,
+      "displayIconImageId": 70996912643718,
+      "created": "2025-09-28T02:29:49.5+00:00",
+      "updated": "2026-02-27T00:00:01.72+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 817,
+        "awardedCount": 768394,
+        "winRatePercentage": 0.043
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3734750322615614,
+      "name": "Usurper",
+      "description": "Beat all chapter 5 bosses on Hard Mode.",
+      "displayName": "Usurper",
+      "displayDescription": "Beat all chapter 5 bosses on Hard Mode.",
+      "enabled": true,
+      "iconImageId": 91719865330447,
+      "displayIconImageId": 91719865330447,
+      "created": "2025-09-28T02:31:17.834+00:00",
+      "updated": "2026-05-21T08:24:26.284+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 81,
+        "awardedCount": 57978,
+        "winRatePercentage": 0.004
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 4479080661331139,
+      "name": "finish ch6",
+      "description": "Complete chapter 6.",
+      "displayName": "finish ch6",
+      "displayDescription": "Complete chapter 6.",
+      "enabled": true,
+      "iconImageId": 79706421387463,
+      "displayIconImageId": 79706421387463,
+      "created": "2026-04-01T01:17:09.843+00:00",
+      "updated": "2026-04-01T01:17:09.843+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 0,
+        "awardedCount": 0,
+        "winRatePercentage": 0
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1283096528457443,
+      "name": "Obsession",
+      "description": "Obtain a collection of 200 identical items in storage... wow",
+      "displayName": "Obsession",
+      "displayDescription": "Obtain a collection of 200 identical items in storage... wow",
+      "enabled": true,
+      "iconImageId": 101523462562406,
+      "displayIconImageId": 101523462562406,
+      "created": "2025-04-30T10:43:55.502+00:00",
+      "updated": "2025-05-28T15:36:13.183+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 19,
+        "awardedCount": 48027,
+        "winRatePercentage": 0.001
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1990351108906910,
+      "name": "Item Initiate",
+      "description": "Collect 50 unique items.",
+      "displayName": "Item Initiate",
+      "displayDescription": "Collect 50 unique items.",
+      "enabled": true,
+      "iconImageId": 135382701672270,
+      "displayIconImageId": 135382701672270,
+      "created": "2024-07-15T08:11:07.923+00:00",
+      "updated": "2026-03-08T22:29:33.678+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 842,
+        "awardedCount": 1402931,
+        "winRatePercentage": 0.044
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3256786252176809,
+      "name": "Item Novice",
+      "description": "Collect 100 unique items.",
+      "displayName": "Item Novice",
+      "displayDescription": "Collect 100 unique items.",
+      "enabled": true,
+      "iconImageId": 127039017585052,
+      "displayIconImageId": 127039017585052,
+      "created": "2024-07-15T08:11:31.598+00:00",
+      "updated": "2026-03-08T22:29:55.69+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 94,
+        "awardedCount": 179905,
+        "winRatePercentage": 0.005
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 1031078991562732,
+      "name": "Item Apprentice",
+      "description": "Collect 150 unique items.",
+      "displayName": "Item Apprentice",
+      "displayDescription": "Collect 150 unique items.",
+      "enabled": true,
+      "iconImageId": 140166821765434,
+      "displayIconImageId": 140166821765434,
+      "created": "2025-09-28T02:30:39.175+00:00",
+      "updated": "2026-03-08T22:29:44.776+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 11,
+        "awardedCount": 28046,
+        "winRatePercentage": 0.001
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3849073530591938,
+      "name": "Card Collector",
+      "description": "Collect 15 unique cards on one file.",
+      "displayName": "Card Collector",
+      "displayDescription": "Collect 15 unique cards on one file.",
+      "enabled": true,
+      "iconImageId": 17501676886,
+      "displayIconImageId": 17501676886,
+      "created": "2024-05-14T03:22:33.454+00:00",
+      "updated": "2024-05-15T14:17:40.732+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 941,
+        "awardedCount": 2188494,
+        "winRatePercentage": 0.049
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 490395857436477,
+      "name": "Card Connoisseur",
+      "description": "Collect 30 unique cards.",
+      "displayName": "Card Connoisseur",
+      "displayDescription": "Collect 30 unique cards.",
+      "enabled": true,
+      "iconImageId": 18326048560,
+      "displayIconImageId": 18326048560,
+      "created": "2024-06-23T00:03:39.016+00:00",
+      "updated": "2024-07-04T03:20:22.27+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 605,
+        "awardedCount": 1195368,
+        "winRatePercentage": 0.032
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2910719531927116,
+      "name": "Card Hoarder",
+      "description": "Collect 45 unique cards.",
+      "displayName": "Card Hoarder",
+      "displayDescription": "Collect 45 unique cards.",
+      "enabled": true,
+      "iconImageId": 140714769001959,
+      "displayIconImageId": 140714769001959,
+      "created": "2024-07-15T07:14:42.448+00:00",
+      "updated": "2026-03-08T22:29:12.373+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 278,
+        "awardedCount": 637206,
+        "winRatePercentage": 0.014
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 770435069061887,
+      "name": "Card Enthusiast",
+      "description": "Collect 60 unique cards.",
+      "displayName": "Card Enthusiast",
+      "displayDescription": "Collect 60 unique cards.",
+      "enabled": true,
+      "iconImageId": 86132606871967,
+      "displayIconImageId": 86132606871967,
+      "created": "2025-04-30T10:35:40.616+00:00",
+      "updated": "2025-05-28T15:31:19.169+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 119,
+        "awardedCount": 291520,
+        "winRatePercentage": 0.006
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2148532107785536,
+      "name": "Card Goblin",
+      "description": "Collect 75 unique cards.",
+      "displayName": "Card Goblin",
+      "displayDescription": "Collect 75 unique cards.",
+      "enabled": true,
+      "iconImageId": 78910433066741,
+      "displayIconImageId": 78910433066741,
+      "created": "2025-09-28T02:30:50.342+00:00",
+      "updated": "2026-03-08T22:28:00.82+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 41,
+        "awardedCount": 97447,
+        "winRatePercentage": 0.002
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 2047971461213878,
+      "name": "Wealthy",
+      "description": "Collect 10 BUX.",
+      "displayName": "Wealthy",
+      "displayDescription": "Collect 10 BUX.",
+      "enabled": true,
+      "iconImageId": 17496315921,
+      "displayIconImageId": 17496315921,
+      "created": "2024-05-14T03:21:14.569+00:00",
+      "updated": "2024-05-14T23:39:26.433+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 991,
+        "awardedCount": 2102717,
+        "winRatePercentage": 0.052
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3988858300307912,
+      "name": "Big Bux",
+      "description": "Collect 20 BUX.",
+      "displayName": "Big Bux",
+      "displayDescription": "Collect 20 BUX.",
+      "enabled": true,
+      "iconImageId": 18297081819,
+      "displayIconImageId": 18297081819,
+      "created": "2024-06-23T00:03:18.704+00:00",
+      "updated": "2024-07-02T23:59:23.647+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 620,
+        "awardedCount": 1141062,
+        "winRatePercentage": 0.032
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 299624260238085,
+      "name": "Mega Bux",
+      "description": "Collect 30 BUX.",
+      "displayName": "Mega Bux",
+      "displayDescription": "Collect 30 BUX.",
+      "enabled": true,
+      "iconImageId": 117222296983826,
+      "displayIconImageId": 117222296983826,
+      "created": "2024-07-15T07:12:37.996+00:00",
+      "updated": "2024-10-19T15:02:11.396+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 351,
+        "awardedCount": 685880,
+        "winRatePercentage": 0.018
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 4089188909951488,
+      "name": "Giga Bux",
+      "description": "Collect 40 BUX.",
+      "displayName": "Giga Bux",
+      "displayDescription": "Collect 40 BUX.",
+      "enabled": true,
+      "iconImageId": 89496304106698,
+      "displayIconImageId": 89496304106698,
+      "created": "2025-04-30T10:36:08.172+00:00",
+      "updated": "2025-05-28T15:31:02.287+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 239,
+        "awardedCount": 446042,
+        "winRatePercentage": 0.012
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3713067276897181,
+      "name": "Ultra Bux",
+      "description": "Collect 50 BUX.",
+      "displayName": "Ultra Bux",
+      "displayDescription": "Collect 50 BUX.",
+      "enabled": true,
+      "iconImageId": 78516597495699,
+      "displayIconImageId": 78516597495699,
+      "created": "2025-09-28T02:31:05.041+00:00",
+      "updated": "2026-03-08T22:30:07.366+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 153,
+        "awardedCount": 254750,
+        "winRatePercentage": 0.008
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 3792081423703565,
+      "name": "Loaded Deck",
+      "description": "Max out your BP (Build Points).",
+      "displayName": "Loaded Deck",
+      "displayDescription": "Max out your BP (Build Points).",
+      "enabled": true,
+      "iconImageId": 17368449656,
+      "displayIconImageId": 17368449656,
+      "created": "2024-04-30T02:13:52.079+00:00",
+      "updated": "2024-05-18T22:05:11.987+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 461,
+        "awardedCount": 663111,
+        "winRatePercentage": 0.024
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    },
+    {
+      "id": 586070658248421,
+      "name": "Outrageous Builder",
+      "description": "You reached level 30! (not possible yet)",
+      "displayName": "Outrageous Builder",
+      "displayDescription": "You reached level 30! (not possible yet)",
+      "enabled": true,
+      "iconImageId": 17377884496,
+      "displayIconImageId": 17377884496,
+      "created": "2024-04-30T02:14:10.762+00:00",
+      "updated": "2026-05-11T03:08:17.075+00:00",
+      "statistics": {
+        "pastDayAwardedCount": 0,
+        "awardedCount": 5,
+        "winRatePercentage": 0
+      },
+      "awardingUniverse": {
+        "id": 5678284602,
+        "name": "🏰 Block Tales [DEMO 5]",
+        "rootPlaceId": 16483433878
+      }
+    }
+  ]
+}
